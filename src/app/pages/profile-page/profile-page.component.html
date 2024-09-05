@@ -1,0 +1,13 @@
+<!-- @if (profile$ | async; as profile){ } -->
+<div class="profile-page">
+  <app-profile-header [profile]="profile"></app-profile-header>
+  <app-bio-about-block [aboutInfo]="profile.aboutInfo"></app-bio-about-block>
+  <div class="profile-page__bottom-section">
+    <button
+      class="button warning-button profile-page__logout_btn"
+      (click)="authMockService.logout()"
+    >
+      Выйти
+    </button>
+  </div>
+</div>

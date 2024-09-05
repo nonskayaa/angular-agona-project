@@ -1,0 +1,26 @@
+<div class="bio-about-block">
+  <h1 class="bio-about-block__title title">О себе</h1>
+  @if (loading()) {
+    <app-skeleton></app-skeleton>
+  } @else {
+    @if (!aboutInfo) {
+      <app-no-data>
+        <ng-container header>
+          Ты&nbsp;ещё не&nbsp;заполнил раздел о&nbsp;себе</ng-container
+        >
+        <ng-container subheader>
+          Расскажи о&nbsp;своём опыте, интересах и&nbsp;хобби, чтобы коллеги
+          могли узнать тебя получше
+        </ng-container>
+
+        <button class="primary-button button" (click)="openAboutEditForm()">
+          Заполнить раздел
+        </button>
+      </app-no-data>
+    } @else {
+      <p>
+        {{ aboutInfo }}
+      </p>
+    }
+  }
+</div>

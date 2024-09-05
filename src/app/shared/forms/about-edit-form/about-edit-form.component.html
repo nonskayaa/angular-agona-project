@@ -1,0 +1,63 @@
+<form class="about-edit-form form">
+  <div class="about-edit-form__row">
+    <app-form-field
+      label="Имя"
+      placeholder="Введите свое имя"
+      [formGroup]="aboutEditForm"
+      controlName="firstName"
+      [errorMessages]="{ required: 'Обязательное поле' }"
+    />
+
+    <app-form-field
+      label="Фамилия"
+      placeholder="Введите свою фамилию"
+      [formGroup]="aboutEditForm"
+      controlName="lastName"
+      [errorMessages]="{ required: 'Обязательное поле' }"
+    />
+  </div>
+
+  <app-form-field-textarea
+    label="О себе"
+    placeholder="Введите информацию о себе"
+    [formGroup]="aboutEditForm"
+    controlName="aboutInfo"
+    [errorMessages]="{ maxLength: 'Максимальное количество символов 300' }"
+  />
+
+  <app-form-field
+    label="Адрес"
+    placeholder="Введите свой адрес"
+    [formGroup]="aboutEditForm"
+    controlName="address"
+    [errorMessages]="{ required: 'Обязательное поле' }"
+  />
+
+  <app-form-field
+    label="Email"
+    placeholder="Введите свой e-mail"
+    [formGroup]="aboutEditForm"
+    controlName="email"
+    type="email"
+    [errorMessages]="{
+      required: 'Обязательное поле',
+      email: 'Некорректный email',
+    }"
+  />
+  <div class="about-edit-form__buttons-container">
+    <button
+      class="about-edit-form__button secondary-button button"
+      (click)="close()"
+    >
+      Отменить
+    </button>
+    <button
+      class="registration-form__button primary-button button"
+      [disabled]="aboutEditForm.invalid"
+      (click)="onSubmit($event)"
+      type="submit"
+    >
+      Сохранить
+    </button>
+  </div>
+</form>

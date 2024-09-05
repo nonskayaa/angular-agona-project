@@ -1,0 +1,21 @@
+<div class="form-field">
+  <label class="form-field__label">
+    {{ label }}
+    <input
+      [type]="type"
+      [placeholder]="placeholder"
+      [formControl]="formControl"
+      class="form-field__input"
+      [ngClass]="{
+        'form-field--invalid': formControl.invalid && formControl.touched,
+      }"
+    />
+    @if (formControl.invalid && formControl.touched) {
+      @for (error of errorKeys; track errorKeys) {
+        <p class="error-text">
+          {{ errorMessages[error] }}
+        </p>
+      }
+    }
+  </label>
+</div>

@@ -1,1 +1,116 @@
-/* You can add global styles to this file, and also import other style files */
+@use 'scss-reset/reset'
+@import "fonts"
+@import '@angular/cdk/overlay-prebuilt.css'
+    
+:root
+    --background-main-dark-color: rgb(37, 37, 39)
+    --background-secondary-dark-color: rgb(0, 0, 0)
+    --light-grey-color: rgb(38, 40, 43)
+    --light-text-color:rgb(230, 230, 230)
+    --light-grey-subtitle-text-color: rgb(169, 171, 180)
+    --light-grey-popup-color: rgb(38, 40, 43)
+    --light-blue-primary-button-color: rgb(74, 122, 240)
+    --light-blue-primary-button-color--hover: rgb(46, 96, 222)
+
+    --light-gray-form-field-color: rgba(109, 113, 120, 0.16)
+
+    --red-warning-color: rgb(255, 82, 82)
+    --red-warning-color--hover: rgb(229, 37, 37)
+
+    --ligth-gray-form-border-color: rgb(169, 171, 180)
+
+    --border-radius-standart: 16px
+  
+
+html
+    height: 100%
+    width: 100%
+body 
+    background-color: var( --background-secondary-dark-color)
+    color: var(--light-text-color)
+
+    font-family:"Roboto"
+
+
+a
+    text-decoration: none
+    color: var(--light-text-color)  
+
+.link
+    color: var(--light-blue-primary-button-color)
+
+input, textarea
+    outline: none
+    border: none
+
+
+
+.button
+    padding: 16px
+    border-radius: 8px
+    display: inline-flex
+    align-items: center
+    justify-content: center
+    text-align: center
+    color: var(--light-text-color)
+
+.primary-button
+    background-color: var(--light-blue-primary-button-color)
+
+    &:disabled
+        color: #e1e1e17c
+        background-color:#7398f5
+
+    &:hover 
+        background-color: var(--light-blue-primary-button-color--hover)
+
+
+
+.secondary-button
+    background-color: var(grey)
+
+    // &:disabled
+    //     color: #e1e1e17c
+    //     background-color:#7398f5
+
+.warning-button
+    background-color: var(--red-warning-color)
+
+    &:hover
+        background-color: var(--red-warning-color--hover)
+
+
+
+
+.title
+    font-size: 28px 
+    font-weight: 600
+
+.subtitle
+    line-height: 1.2
+    color: var(--light-grey-subtitle-text-color)
+
+.form
+    min-width: 480px
+    display: flex
+    flex-direction: column
+    align-items: left
+    gap: 15px 
+    padding: 24px 24px 32px
+    background-color: var(--light-grey-popup-color)  
+    border-radius:  var(--border-radius-standart)
+
+.error-text
+    font-size: 14px
+    color: var( --red-warning-color)
+    margin-top: 5px
+
+.overlay-backdrop 
+    background-color: rgba(0, 0, 0, 0.5)
+
+.overlay-panel 
+    display: flex
+    flex-direction: column
+    background-color: var(--light-grey-popup-color)  
+    padding: 20px
+    border-radius: var(--border-radius-standart)

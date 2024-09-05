@@ -1,0 +1,28 @@
+<div class="form-field-textarea">
+  <label class="form-field-textarea__label">
+    {{ label }}
+
+    <textarea
+      [formControl]="formControl"
+      cdkTextareaAutosize
+      #autosize="cdkTextareaAutosize"
+      cdkAutosizeMinRows="5"
+      cdkAutosizeMaxRows="10"
+      type="type"
+      placeholder="placeholder"
+      class="form-field-textarea__textarea"
+      [ngClass]="{
+        'form-field-textarea--invalid':
+          formControl.invalid && formControl.touched,
+      }"
+    ></textarea>
+
+    @if (formControl.invalid && formControl.touched) {
+      @for (error of errorKeys; track errorKeys) {
+        <p class="error-text">
+          {{ errorMessages[error] }}
+        </p>
+      }
+    }
+  </label>
+</div>

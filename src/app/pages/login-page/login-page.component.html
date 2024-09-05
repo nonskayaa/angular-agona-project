@@ -1,0 +1,42 @@
+<div class="login-page">
+  <form
+    class="login-form form"
+    [formGroup]="loginForm"
+    (ngSubmit)="onSubmit($event)"
+  >
+    <h1 class="login-form__title title">Вход</h1>
+    <app-form-field
+      [label]="'Почта'"
+      [placeholder]="'Введите почту'"
+      [formGroup]="loginForm"
+      [controlName]="'email'"
+      [type]="'email'"
+      [errorMessages]="{
+        required: 'Обязательное поле',
+        email: 'Невалидная почта',
+      }"
+    />
+
+    <app-form-field
+      [label]="'Пароль'"
+      [placeholder]="'Введите пароль'"
+      [formGroup]="loginForm"
+      [controlName]="'password'"
+      [type]="'password'"
+      [errorMessages]="{
+        required: 'Обязательное поле',
+        minlength: 'Пароль не менее 6 символов',
+      }"
+    />
+    <span class="login-form__registration_info subtitle"
+      >Нет аккаунта?
+      <a class="link" href="/registration">Зарегистрироваться</a></span
+    >
+    <button
+      class="login-form__button primary-button button"
+      [disabled]="this.loginForm.invalid"
+    >
+      Войти
+    </button>
+  </form>
+</div>

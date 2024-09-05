@@ -1,0 +1,84 @@
+<div class="registration-page">
+  <form
+    class="registration-form form"
+    [formGroup]="registerForm"
+    (ngSubmit)="onSubmit($event)"
+  >
+    <h1 class="registration-form__title title">Регистрация</h1>
+
+    <div class="registration-form__row">
+      <app-form-field
+        label="Имя"
+        placeholder="Введите свое имя"
+        [formGroup]="registerForm"
+        controlName="firstName"
+        [errorMessages]="{ required: 'Обязательное поле' }"
+      />
+
+      <app-form-field
+        label="Фамилия"
+        placeholder="Введите свою фамилию"
+        [formGroup]="registerForm"
+        controlName="lastName"
+        [errorMessages]="{ required: 'Обязательное поле' }"
+      />
+    </div>
+
+    <app-form-field
+      label="Адрес"
+      placeholder="Введите свой адрес"
+      [formGroup]="registerForm"
+      controlName="address"
+      [errorMessages]="{ required: 'Обязательное поле' }"
+    />
+
+    <app-form-field
+      label="Email"
+      placeholder="Введите свой e-mail"
+      [formGroup]="registerForm"
+      controlName="email"
+      type="email"
+      [errorMessages]="{
+        required: 'Обязательное поле',
+        email: 'Некорректный email',
+      }"
+    />
+
+    <app-form-field
+      label="Пароль"
+      placeholder="Введите пароль"
+      [formGroup]="registerForm"
+      controlName="password"
+      type="password"
+      [errorMessages]="{
+        required: 'Обязательное поле',
+        minlength: 'Пароль должен содержать как минимум 6 символов',
+        pattern: 'Пароль не должен содержать символы ',
+      }"
+    />
+
+    <app-form-field
+      label="Подтвердите пароль"
+      placeholder="Введите пароль повторно"
+      [formGroup]="registerForm"
+      controlName="confirmPassword"
+      type="password"
+      [errorMessages]="{
+        required: 'Обязательное поле',
+        minLength: 'Пароль должен содержать как минимум 6 символов',
+        pattern: 'Пароль не должен содержать символы',
+        mismatch: 'Пароли не совпадают',
+      }"
+    />
+    @if ( registerForm.errors?.["mismatch"] &&
+    registerForm.get("confirmPassword")?.touched ) {
+    <p class="error-text">Пароли не совпадают</p>
+    }
+    <button
+      class="registration-form__button primary-button button"
+      [disabled]="registerForm.invalid"
+    >
+      Зарегистрироваться
+    </button>
+  </form>
+</div>

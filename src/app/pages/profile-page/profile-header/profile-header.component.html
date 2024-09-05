@@ -1,0 +1,34 @@
+@if (profile) {
+<div class="profile-header">
+  <img
+    src="https://www.shareicon.net/data/128x128/2017/06/21/887379_face_512x512.png"
+    alt=""
+  />
+  <div class="profile-header__bio">
+    <div class="profile-header__text">
+      @if (loading()) {
+      <app-skeleton />
+      <app-skeleton />
+      <app-skeleton />
+      } @else {
+      <h1 class="profile-header__name title">
+        {{ profile.firstName }} {{ profile.lastName }}
+      </h1>
+      <div class="profile-header__additional-info">
+        <p class="profile-header__additional-info_item subtitle">
+          {{ profile.address }}
+        </p>
+        <p class="profile-header__additional-info_item subtitle">
+          {{ profile.email }}
+        </p>
+      </div>
+      }
+    </div>
+    <button class="primary-button button" (click)="openAboutEditForm()">
+      Редактировать профиль
+    </button>
+  </div>
+</div>
+} @else {
+<p>loading...</p>
+}

@@ -35,8 +35,11 @@ yarn-error.log
 /coverage
 /libpeerconnection.log
 testem.log
-/typings
+/typingsf
 
 # System files
 .DS_Store
 Thumbs.db
+
+.nx/cache
+.nx/workspace-data
